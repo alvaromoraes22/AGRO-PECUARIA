@@ -37,27 +37,11 @@
 
         <section class="carousel-section">
             <div class="carousel-wrapper">
-                <div class="carousel" id="imageCarousel">
-                    <div class="carousel-item" style="--i:0;">
-                        <img src="download (1).jpeg" alt="Campo de agropecuária 1">
-                    </div>
-                    <div class="carousel-item" style="--i:1;">
-                        <img src="download (1).jpeg" alt="Campo de agropecuária 2">
-                    </div>
-                    <div class="carousel-item" style="--i:2;">
-                        <img src="download (1).jpeg" alt="Campo de agropecuária 3">
-                    </div>
-                    <div class="carousel-item" style="--i:3;">
-                        <img src="download (1).jpeg" alt="Campo de agropecuária 4">
-                    </div>
-                    <div class="carousel-item" style="--i:4;">
-                        <img src="download (1).jpeg" alt="Campo de agropecuária 5">
-                    </div>
-                </div>
+                <div id="carouselCanvas" class="carousel-canvas"></div>
                 <button class="carousel-control prev" id="carouselPrev" aria-label="Anterior">‹</button>
                 <button class="carousel-control next" id="carouselNext" aria-label="Próximo">›</button>
             </div>
-            <p class="carousel-caption">Explore imagens com efeito 3D e perspectiva para destacar a sustentabilidade no campo.</p>
+            <p class="carousel-caption">Explore imagens com efeito 3D no eixo Y e perspectiva realista.</p>
         </section>
 
         <section class="content-container">
@@ -158,6 +142,7 @@
         <p>&copy; 2024 Agropecuária Sustentável. Cultivando um futuro mais verde. 🌱</p>
     </footer>
 
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

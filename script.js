@@ -218,25 +218,84 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeCarousel() {
-    const carousel = document.getElementById('imageCarousel');
+    const container = document.getElementById('carouselCanvas');
     const prevButton = document.getElementById('carouselPrev');
     const nextButton = document.getElementById('carouselNext');
-    let currentRotation = 0;
-    const rotationStep = 72;
 
-    function setRotation() {
-        carousel.style.setProperty('--carousel-rotation', `${currentRotation}deg`);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.set(0, 3.5, 13);
+    camera.lookAt(0, 0, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
+    renderer.setClearColor(0x0b2a20, 1);
+    renderer.domElement.style.display = 'block';
+    container.appendChild(renderer.domElement);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+    directionalLight.position.set(10, 10, 10);
+    scene.add(directionalLight);
+
+    const carouselGroup = new THREE.Group();
+    scene.add(carouselGroup);
+
+    const imagePaths = [
+        'carousel1.png',
+        'carousel2.svg',
+        'carousel3.svg',
+        'carousel4.svg',
+        'carousel5.svg'
+    ];
+
+    const loader = new THREE.TextureLoader();
+    const radius = 7.5;
+    const cardWidth = 5.2;
+    const cardHeight = 3.5;
+
+    imagePaths.forEach((path, index) => {
+        const geometry = new THREE.PlaneGeometry(cardWidth, cardHeight);
+        const material = new THREE.MeshPhongMaterial({
+            map: loader.load(path),
+            shininess: 30,
+            side: THREE.DoubleSide
+        });
+        const plane = new THREE.Mesh(geometry, material);
+        const angle = index * ((Math.PI * 2) / imagePaths.length);
+        plane.position.set(Math.sin(angle) * radius, 0, Math.cos(angle) * radius);
+        plane.lookAt(new THREE.Vector3(0, 0, 0));
+        carouselGroup.add(plane);
+    });
+
+    carouselGroup.rotation.x = 0;
+    carouselGroup.rotation.y = 0;
+
+    let targetRotation = 0;
+    const rotationStep = (Math.PI * 2) / imagePaths.length;
+
+    prevButton.addEventListener('click', () => {
+        targetRotation += rotationStep;
+    });
+
+    nextButton.addEventListener('click', () => {
+        targetRotation -= rotationStep;
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        carouselGroup.rotation.y += (targetRotation - carouselGroup.rotation.y) * 0.08;
+        renderer.render(scene, camera);
     }
 
-    prevButton.addEventListener('click', function() {
-        currentRotation += rotationStep;
-        setRotation();
+    window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
     });
 
-    nextButton.addEventListener('click', function() {
-        currentRotation -= rotationStep;
-        setRotation();
-    });
-
-    setRotation();
+    animate();
 }
