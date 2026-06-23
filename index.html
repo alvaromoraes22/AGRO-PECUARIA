@@ -1,33 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agropecuária - Sustentabilidade e Responsabilidade Ambiental</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>AGROPECUARIA</h1>  
-    <img src="download (1).jpeg" alt="">
-    <p>A agropecuária é uma atividade econômica do tipo primária que envolve o cultivo da terra e a criação de animais. Esse setor é um dos mais importantes da economia brasileira. A agropecuária é caracterizada tanto pelo cultivo de plantas quanto pela criação de animais.
-    A agropecuária envolve as atividades humanas destinadas ao cultivo da terra (agricultura) e à criação de animais (pecuária).
-    Quais os tipos de agropecuária?</p>
-<p>Agropecuária extensiva: trata-se da agricultura e da pecuária tradicionais. ...
-Agropecuária intensiva: trata-se da agricultura e da pecuária modernas, intensivas tanto em capitais quanto em tecnologia.
-Como surgiu a agropecuária?</p>
-<p>Surgiu, assim, um tipo de exploração rural diferente das grandes lavouras e que era composto por pequenas unidades onde a própria família proprietária trabalhava a terra, com o emprego do trabalho escravo ocorrendo de forma limitada.
-A agropecuária é um dos setores mais importantes da economia brasileira, desempenhando um papel crucial na geração de empregos, produção de alimentos, exportações e investimentos que contribuem para o PIB do país.
-A atividade agropecuária é muito importante, pois faz parte da economia primária. É ela quem fornece alimentos e matérias-primas para a produção de outros itens. As condições de clima e de solo brasileiro são excelentes para esse setor, que participa de grande fatia do PIB nacional.
-Quais são os principais tipos de agricultura?</p>
-<li>Agricultura tradicional.
-Agricultura moderna.
-Agricultura familiar.
-Agricultura patronal.
-Agricultura orgânica.</li>
-<p>Existem diversas formas de cultivo na prática da agricultura: plantio direto, rotação de culturas, curvas de nível e afolhamento. Essa diversidade de técnicas existe em razão dos diferentes fins, ora os agricultores priorizam a produtividade, ora priorizam a conservação dos solos
-O PIB é a soma de todos os bens e serviços finais produzidos por um país, estado ou cidade, geralmente em um ano. Todos os países calculam o seu PIB nas suas respectivas moedas. O PIB do Brasil em 2023, por exemplo, foi de R$ 10,9 trilhões.
-Pecuária é a atividade produtiva de criação de animais que tem como propósito a produção de alimentos como carnes, ovos e leites, ou de matérias-primas, a exemplo de peles, couros e lãs destinadas à confecção de outros artigos.
-O Agro pode ser a Agricultura, a Agropecuária, a tecnologia, a engenharia ou vários outros setores, que juntos, implementam soluções dentro do ambiente rural.
-No agro estão as pequenas, médias e grandes empresas de todos os setores, seja do agrícola (pequenas, médias e grandes fazendas), dos insumos, industriais, de distribuição e de serviços.
-Qual a importância da agropecuária? A agropecuária garante o abastecimento de alimentos para a população, fornecendo matérias-primas essenciais para diversas indústrias. Além disso, contribui para a segurança alimentar, gerando empregos e impulsionando a economia.</p>
+    <!-- Modal de Abertura (Sustentabilidade) -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-box">
+                <h2>🌱 Sustentabilidade & Responsabilidade Ambiental 🌍</h2>
+                <p>A agropecuária moderna é fundamental para garantir um futuro sustentável. Através de práticas responsáveis e inovadoras, podemos conciliar a produção de alimentos com a preservação do nosso planeta.</p>
+                <p><strong>Juntos, cultivamos um amanhã mais verde!</strong></p>
+                <button class="btn-modal" onclick="closeModal()">Explorar Conteúdo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">🌾 AGROPECUÁRIA 🌾</h1>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="download (1).jpeg" alt="Imagem de campo de agropecuária" class="hero-image">
+            <div class="hero-text">
+                <h2>Agricultura e Pecuária para o Futuro</h2>
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            <div class="carousel-wrapper">
+                <div class="carousel" id="imageCarousel">
+                    <div class="carousel-item" style="--i:0;">
+                        <img src="download (1).jpeg" alt="Campo de agropecuária 1">
+                    </div>
+                    <div class="carousel-item" style="--i:1;">
+                        <img src="download (1).jpeg" alt="Campo de agropecuária 2">
+                    </div>
+                    <div class="carousel-item" style="--i:2;">
+                        <img src="download (1).jpeg" alt="Campo de agropecuária 3">
+                    </div>
+                    <div class="carousel-item" style="--i:3;">
+                        <img src="download (1).jpeg" alt="Campo de agropecuária 4">
+                    </div>
+                    <div class="carousel-item" style="--i:4;">
+                        <img src="download (1).jpeg" alt="Campo de agropecuária 5">
+                    </div>
+                </div>
+                <button class="carousel-control prev" id="carouselPrev" aria-label="Anterior">‹</button>
+                <button class="carousel-control next" id="carouselNext" aria-label="Próximo">›</button>
+            </div>
+            <p class="carousel-caption">Explore imagens com efeito 3D e perspectiva para destacar a sustentabilidade no campo.</p>
+        </section>
+
+        <section class="content-container">
+            <article class="content-box">
+                <h3>O que é Agropecuária?</h3>
+                <p>A agropecuária é uma atividade econômica do tipo primária que envolve o cultivo da terra e a criação de animais. Esse setor é um dos mais importantes da economia brasileira. A agropecuária é caracterizada tanto pelo cultivo de plantas quanto pela criação de animais.</p>
+                <p>A agropecuária envolve as atividades humanas destinadas ao cultivo da terra (agricultura) e à criação de animais (pecuária).</p>
+            </article>
+
+            <article class="content-box">
+                <h3>Tipos de Agropecuária</h3>
+                <p><strong>Agropecuária Extensiva:</strong> trata-se da agricultura e da pecuária tradicionais.</p>
+                <p><strong>Agropecuária Intensiva:</strong> trata-se da agricultura e da pecuária modernas, intensivas tanto em capitais quanto em tecnologia.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>A História da Agropecuária</h3>
+                <p>Surgiu, assim, um tipo de exploração rural diferente das grandes lavouras e que era composto por pequenas unidades onde a própria família proprietária trabalhava a terra, com o emprego do trabalho escravo ocorrendo de forma limitada.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>Importância Econômica</h3>
+                <p>A agropecuária é um dos setores mais importantes da economia brasileira, desempenhando um papel crucial na geração de empregos, produção de alimentos, exportações e investimentos que contribuem para o PIB do país.</p>
+                <p>A atividade agropecuária é muito importante, pois faz parte da economia primária. É ela quem fornece alimentos e matérias-primas para a produção de outros itens.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>Condições Brasileiras</h3>
+                <p>As condições de clima e de solo brasileiro são excelentes para esse setor, que participa de grande fatia do PIB nacional.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>Principais Tipos de Agricultura</h3>
+                <ul class="agriculture-list">
+                    <li>Agricultura Tradicional</li>
+                    <li>Agricultura Moderna</li>
+                    <li>Agricultura Familiar</li>
+                    <li>Agricultura Patronal</li>
+                    <li>Agricultura Orgânica</li>
+                </ul>
+            </article>
+
+            <article class="content-box">
+                <h3>Técnicas de Cultivo</h3>
+                <p>Existem diversas formas de cultivo na prática da agricultura: plantio direto, rotação de culturas, curvas de nível e afolhamento. Essa diversidade de técnicas existe em razão dos diferentes fins, ora os agricultores priorizam a produtividade, ora priorizam a conservação dos solos.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>PIB e Economia</h3>
+                <p>O PIB é a soma de todos os bens e serviços finais produzidos por um país, estado ou cidade, geralmente em um ano. Todos os países calculam o seu PIB nas suas respectivas moedas. O PIB do Brasil em 2023, por exemplo, foi de R$ 10,9 trilhões.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>Pecuária</h3>
+                <p>Pecuária é a atividade produtiva de criação de animais que tem como propósito a produção de alimentos como carnes, ovos e leites, ou de matérias-primas, a exemplo de peles, couros e lãs destinadas à confecção de outros artigos.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>O Agro Moderno</h3>
+                <p>O Agro pode ser a Agricultura, a Agropecuária, a tecnologia, a engenharia ou vários outros setores, que juntos, implementam soluções dentro do ambiente rural.</p>
+                <p>No agro estão as pequenas, médias e grandes empresas de todos os setores, seja do agrícola (pequenas, médias e grandes fazendas), dos insumos, industriais, de distribuição e de serviços.</p>
+            </article>
+
+            <article class="content-box">
+                <h3>Importância para o Futuro</h3>
+                <p>A agropecuária garante o abastecimento de alimentos para a população, fornecendo matérias-primas essenciais para diversas indústrias. Além disso, contribui para a segurança alimentar, gerando empregos e impulsionando a economia.</p>
+            </article>
+        </section>
+
+        <section id="quizSection" class="quiz-section">
+            <div class="quiz-box">
+                <div class="quiz-header">
+                    <h3>Quiz de Sustentabilidade</h3>
+                    <p>Responda 5 perguntas e veja seu nível de responsabilidade ambiental.</p>
+                </div>
+                <div id="quizProgress" class="quiz-progress">
+                    <span id="currentQuestion">Pergunta 1</span>
+                    <span id="scoreDisplay">Pontuação: 0</span>
+                </div>
+                <div id="quizCard" class="quiz-card">
+                    <p id="questionText">Carregando pergunta...</p>
+                    <div id="answerButtons" class="answer-buttons"></div>
+                </div>
+                <div class="quiz-footer">
+                    <button id="nextButton" class="btn-modal">Próxima</button>
+                    <button id="restartButton" class="btn-modal btn-secondary">Refazer Quiz</button>
+                </div>
+                <div id="quizResult" class="quiz-result hidden">
+                    <h4 id="resultTitle">Parabéns!</h4>
+                    <p id="resultMessage">Você completou o quiz.</p>
+                    <p id="rewardMessage"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Agropecuária Sustentável. Cultivando um futuro mais verde. 🌱</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
