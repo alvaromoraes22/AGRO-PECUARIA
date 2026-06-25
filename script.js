@@ -245,7 +245,7 @@ function initializeCarousel() {
     scene.add(carouselGroup);
 
     const imagePaths = [
-        'carousel1.png',
+        'TRIGO.PNG',
         'carousel2.svg',
         'carousel3.svg',
         'carousel4.svg',
@@ -256,19 +256,22 @@ function initializeCarousel() {
     const radius = 7.5;
     const cardWidth = 5.2;
     const cardHeight = 3.5;
+    const planes = [];
 
     imagePaths.forEach((path, index) => {
         const geometry = new THREE.PlaneGeometry(cardWidth, cardHeight);
-        const material = new THREE.MeshPhongMaterial({
+        // Usar MeshBasicMaterial para não depender da iluminação (evita área preta)
+        const material = new THREE.MeshBasicMaterial({
             map: loader.load(path),
-            shininess: 30,
-            side: THREE.DoubleSide
+            side: THREE.DoubleSide,
+            transparent: true
         });
         const plane = new THREE.Mesh(geometry, material);
         const angle = index * ((Math.PI * 2) / imagePaths.length);
         plane.position.set(Math.sin(angle) * radius, 0, Math.cos(angle) * radius);
         plane.lookAt(new THREE.Vector3(0, 0, 0));
         carouselGroup.add(plane);
+        planes.push(plane);
     });
 
     carouselGroup.rotation.x = 0;
@@ -285,9 +288,49 @@ function initializeCarousel() {
         targetRotation -= rotationStep;
     });
 
+    // vetores temporários para cálculo de visibilidade
+    const tmpVec = new THREE.Vector3();
+    const tmpDir = new THREE.Vector3();
+
     function animate() {
         requestAnimationFrame(animate);
+
+        // rotação suave do grupo
         carouselGroup.rotation.y += (targetRotation - carouselGroup.rotation.y) * 0.08;
+
+        // Para cada card, mostrar somente quando estiver de frente para a câmera
+        planes.forEach((plane) => {
+            // direção do plano (eixo -Z do objeto) em mundo
+            plane.getWorldDirection(tmpDir).normalize();
+            // vetor da posição do plano até a câmera
+            tmpVec.copy(camera.position).sub(plane.getWorldPosition(new THREE.Vector3())).normalize();
+            const dot = tmpVec.dot(tmpDir);
+
+            // Opacidade mapeada a partir do dot, com um mínimo para evitar desaparecer completamente
+            const opacity = Math.max(0.15, dot);
+            plane.material.transparent = true;
+            plane.material.opacity = opacity;
+            plane.material.needsUpdate = true;
+
+            // Visível se estiver apontando ao menos parcialmente para a câmera
+            plane.visible = dot > -0.2;
+
+            // Fazer o card sempre olhar para a câmera (billboard)
+            plane.lookAt(camera.position);
+
+            // Aproximar e aumentar os cards que estão mais frontais para ficarem em primeiro plano
+            // calcular direção local no plano XZ (posições locais do filho no grupo)
+            const dir = tmpDir.set(plane.position.x, 0, plane.position.z).normalize();
+            const bringForward = 2.5 * opacity; // quanto aproximar
+            const desiredRadius = radius - bringForward;
+            plane.position.x = dir.x * desiredRadius;
+            plane.position.z = dir.z * desiredRadius;
+
+            // Escala para destacar o card frontal
+            const scale = 0.9 + (0.9 * opacity);
+            plane.scale.set(scale, scale, 1);
+        });
+
         renderer.render(scene, camera);
     }
 
