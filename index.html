@@ -29,19 +29,34 @@
 
     <main>
         <section class="hero">
-            <img src="download (1).jpeg" alt="Imagem de campo de agropecuária" class="hero-image">
+            <img src="IMAGEM_5.png" alt="Imagem de campo de agropecuária" class="hero-image">
             <div class="hero-text">
                 <h2>Agricultura e Pecuária para o Futuro</h2>
             </div>
         </section>
 
         <section class="carousel-section">
-            <div class="carousel-wrapper">
-                <div id="carouselCanvas" class="carousel-canvas"></div>
-                <button class="carousel-control prev" id="carouselPrev" aria-label="Anterior">‹</button>
-                <button class="carousel-control next" id="carouselNext" aria-label="Próximo">›</button>
+            <div class="carousel-container">
+                <button class="carousel-button prev" aria-label="Anterior imagem">‹</button>
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track">
+                        <div class="carousel-slide active">
+                            <img src="IMAGEM_1.png" alt="Imagem agropecuária 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="IMAGEM_2.png" alt="Imagem agropecuária 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="IMAGEM_3.png" alt="Imagem agropecuária 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="IMAGEM_4.png" alt="Imagem agropecuária 4">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button next" aria-label="Próxima imagem">›</button>
             </div>
-            <p class="carousel-caption">Explore imagens com efeito 3D no eixo Y e perspectiva realista.</p>
+            <p class="carousel-note">Deslize pelas imagens do campo. As fotos entram e saem da tela principal.</p>
         </section>
 
         <section class="content-container">
@@ -142,7 +157,6 @@
         <p>&copy; 2024 Agropecuária Sustentável. Cultivando um futuro mais verde. 🌱</p>
     </footer>
 
-    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
